@@ -32,7 +32,7 @@
 			</el-col>
 			<el-col :span="12">
 				<div class="grid-content bg-purple-light">
-					<vue-json-editor style="height: 852px" v-model="resultJsonData" :showBtns="false" :mode="'code'" />
+					<vue-json-editor style="height: 852px" v-model="resultJsonData" :showBtns="false" :mode="mode" />
 				</div>
 			</el-col>
 		</el-row>
@@ -51,6 +51,7 @@
 		},
 		data() {
 			return {
+        mode: text,
 				key: '1raa70xiea6r1qm0',
 				iv: '83h8ew1kx0gcsn4x',
 				rawData: '',
