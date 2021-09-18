@@ -51,7 +51,7 @@
 		},
 		data() {
 			return {
-        mode: text,
+        mode: 'text',
 				key: '1raa70xiea6r1qm0',
 				iv: '83h8ew1kx0gcsn4x',
 				rawData: '',
