@@ -11,11 +11,14 @@
 					</el-input>
 					<el-button type="danger" @click="EncryptData()">加密</el-button>
 					<el-button type="warning" @click="DecryptData()">解密</el-button>
-					<el-button type="info" @click="clearRawData()">清空输入框</el-button>
 					<el-button type="success" v-clipboard:copy="resultData" v-clipboard:success="onCopy"
 						v-clipboard:error="onError">复制结果文本</el-button>
+          <el-button type="success" v-clipboard:copy="resultJsonData" v-clipboard:success="onCopyJSON"
+                     v-clipboard:error="onError">复制JSON文本</el-button>
 					<el-button type="primary" v-clipboard:copy="resultData" v-clipboard:success="copyToRawData"
-						v-clipboard:error="onError">复制到输入框</el-button>
+						v-clipboard:error="onError">结果复制到输入框</el-button>
+          <el-button type="info" @click="clearRawData()">清空输入框</el-button>
+          <el-button type="info" @click="clearResultData()">清空JSON文本</el-button>
 				</div>
 			</el-col>
 		</el-row>
@@ -94,10 +97,12 @@
 			clearRawData() {
 				this.rawData = ''
 			},
-			// 格式化结果数据
-			formatResultDate() {
-
+			// 清空结果数据
+      clearResultData() {
+        this.resultData = ''
+        this.resultJsonData = ''
 			},
+      //结果复制到输入框
 			copyToRawData: function(e) {
 				this.rawData = e.text
 				this.$message({
@@ -112,6 +117,13 @@
 					type: 'success'
 				});
 			},
+      // 复制JSON数据
+      onCopyJSON: function(e) {
+        this.$message({
+          message: '复制成功',
+          type: 'success'
+        });
+      },
 			onError: function(e) {
 				this.$message.error('复制失败');
 			}
@@ -119,7 +131,6 @@
 	}
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="less">
 	.grid-content{
 		padding: 5px;
@@ -131,15 +142,11 @@
 			height: 100%;
 		}
 	}
-	
+
 </style>
 <style scoped>
 	.el-row {
 		margin-bottom: 5px;
-
-		&:last-child {
-			margin-bottom: 0;
-		}
 	}
 
 	.text-input {

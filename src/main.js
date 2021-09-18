@@ -3,11 +3,9 @@ import App from './App.vue'
 import router from './router'
 import Element from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css';
-import JsonViewer from 'vue-json-viewer'
 import VueClipboard from 'vue-clipboard2'
 
 Vue.use(VueClipboard)
-Vue.use(JsonViewer)
 Vue.use(Element)
 Vue.config.productionTip = false
 

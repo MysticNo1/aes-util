@@ -15,7 +15,6 @@
 		"vue-clipboard2": "^0.3.3",
 		"vue-code-diff": "^1.2.0",
 		"vue-json-editor": "^1.4.3",
-		"vue-json-viewer": "^2.2.19",
 		"vue-router": "^3.5.2"
 	},
 	"devDependencies": {
